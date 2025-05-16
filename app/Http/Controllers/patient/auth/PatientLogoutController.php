@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers\patient\auth;
+
+use App\Http\Controllers\Controller;
+use App\Models\Patient;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class PatientLogoutController extends Controller
+{
+    public function logout(Request $request)
+    {
+        $user = Auth::guard(Patient::API_GUARD_NAME)->user();
+        if ($user && $request->user()->currentAccessToken()) {
+            $request->user()->currentAccessToken()->delete();
+        }
+        return response()->json([
+            "message" => "Logged out successfully",
+        ]);
+    }
+}
