@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('patients_physical_data', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("patient_id")->references("id")->on("patients");
             $table->double("hight");
             $table->double("weights");
             $table->timestamps();

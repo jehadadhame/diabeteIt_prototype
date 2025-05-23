@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId("patient_id")->references("id")->on("patients");
             $table->foreignId("meal_id")->references("id")->on("meals");
+            $table->integer('value');
             $table->timestamp("meal_time");
         });
     }

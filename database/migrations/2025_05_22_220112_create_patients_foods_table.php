@@ -10,11 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('patients_allergic_foods', function (Blueprint $table) {
+        Schema::create('patients_foods', function (Blueprint $table) {
             $table->id();
             $table->foreignId("patient_id")->references("id")->on("patients");
             $table->foreignId("food_id")->references("id")->on("foods");
-            $table->timestamps();
+            $table->integer('value');
+            $table->timestamp("food_time");
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('patients_allergic_foods');
+        Schema::dropIfExists('patients_foods');
     }
 };
