@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Meal extends Model
 {
@@ -13,11 +15,24 @@ class Meal extends Model
         "carbs_grams",
         "protein_grams",
         "calories",
+        "fat_grams",
+        "fiber_grams",
+        "glycemic_load",
+        "net_carbs",
+        "meal_type",
         "unit",
-        "unit_value",
+        "is_custom",
+        "created_by",
+        "image_url",
     ];
-    public function patient(): BelongsToMany
+
+    public function patients(): MorphToMany
     {
-        return $this->belongsToMany(Patient::class, 'patients_meals', 'meal_id', 'patient_id');
+        return $this->morphToMany(Patient::class, 'edibles', PatientEdible::TABLE_NAME)
+            ->withPivot('quantity', 'eating_time');
+    }
+    public function foods(): HasManyThrough
+    {
+        return $this->hasManyThrough(Food::class, FoodInMeal::class);
     }
 }

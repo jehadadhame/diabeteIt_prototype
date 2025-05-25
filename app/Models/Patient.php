@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -16,6 +17,9 @@ class Patient extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
     protected $guard = 'patient';
+    protected $table = 'patients';
+    public const TABLE_NAME = 'patients';
+
     public const GUARD_NAME = "patient";
     public const API_GUARD_NAME = "patient-api";
     public function sendPasswordResetNotification($token)
@@ -41,39 +45,43 @@ class Patient extends Authenticatable
     }
     public function physical_data(): HasOne
     {
-        return $this->hasOne(Patient_physical_data::class);
+        return $this->hasOne(PatientPhysicalData::class);
     }
     public function diabetes_date(): HasOne
     {
-        return $this->hasOne(Patient_diabetes_data::class);
+        return $this->hasOne(PatientDiabetesData::class);
     }
 
+    public function foods(): MorphToMany
+    {
+        return $this->morphedByMany(Food::class, 'edibles', PatientEdible::class);
+    }
     public function allergic_foods(): HasManyThrough
     {
-        return $this->hasManyThrough(Food_item::class, Patient_allergic_food::class);
+        return $this->hasManyThrough(Food::class, PatientAllergicFood::class);
     }
     public function medications(): HasManyThrough
     {
-        return $this->hasManyThrough(Medication::class, Patient_medication::class);
+        return $this->hasManyThrough(Medication::class, PatientMedication::class);
     }
 
     public function diseases(): HasManyThrough
     {
-        return $this->hasManyThrough(Disease::class, Patient_disease::class);
+        return $this->hasManyThrough(Disease::class, PatientDisease::class);
     }
 
     public function symptoms(): HasManyThrough
     {
-        return $this->hasManyThrough(Symptom::class, Patient_symptom::class);
+        return $this->hasManyThrough(Symptom::class, PatientSymptom::class);
     }
 
-    public function meals(): HasManyThrough
+    public function meals(): MorphToMany
     {
-        return $this->hasManyThrough(Meal::class, Patient_meal::class);
+        return $this->morphedByMany(PatientEdible::class, 'edibles', PatientEdible::TABLE_NAME);
     }
     public function exercises(): HasManyThrough
     {
-        return $this->hasManyThrough(Exercise::class, Patient_exercise::class);
+        return $this->hasManyThrough(Exercise::class, PatientExercise::class);
     }
 
     public function blood_sugar_levels(): HasMany

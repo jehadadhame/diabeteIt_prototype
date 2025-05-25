@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Patient_physical_data extends Model
+class PatientDiabetesData extends Model
 {
     protected $fillable = [
         "patient_id",
-        "height",
-        "weight",
+        "daily_dose",
+        "icr",
+        "diagnosis_date",
     ];
     public function patient(): BelongsTo
     {
         return $this->belongsTo(Patient::class);
     }
+    //
 }

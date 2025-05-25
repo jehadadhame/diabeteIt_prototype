@@ -10,12 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('patients_foods', function (Blueprint $table) {
+        Schema::create('foods_in_meals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("patient_id")->references("id")->on("patients");
             $table->foreignId("food_id")->references("id")->on("foods");
-            $table->integer('value');
-            $table->timestamp("food_time");
+            $table->foreignId("meal_id")->references("id")->on("meals");
+            $table->integer('quantity');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('patients_foods');
+        Schema::dropIfExists('foods_in_meals');
     }
 };

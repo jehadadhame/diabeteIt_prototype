@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Patient_medication extends Model
+class PatientDisease extends Model
 {
     protected $fillable = [
         "patient_id",
-        "drug_id",
+        "disease_id",
     ];
 }

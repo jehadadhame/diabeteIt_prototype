@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Patient_symptom extends Model
+class PatientSymptom extends Model
 {
     protected $fillable = [
         "patient_id",

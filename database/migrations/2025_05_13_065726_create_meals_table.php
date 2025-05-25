@@ -17,15 +17,15 @@ return new class extends Migration {
             $table->double("carbs_grams");
             $table->double("protein_grams");
             $table->double("calories");
-            $table->decimal('fat_grams', 5, 2);
-            $table->decimal('fiber_grams', 5, 2);
-            $table->decimal('glycemic_load', 5, 2);
-            $table->decimal('net_carbs', 5, 2);
-            $table->enum('meal_type', ['breakfast', 'lunch', 'dinner', 'snack']);
-            $table->enum("unit", ['ml', 'grams']);
-            $table->boolean('is_custom');
-            $table->morphs('created_by');
-            $table->string('image_url');
+            $table->decimal("fat_grams", 5, 2);
+            $table->decimal("fiber_grams", 5, 2);
+            $table->decimal("glycemic_load", 5, 2);
+            $table->decimal("net_carbs", 5, 2);
+            $table->enum("meal_type", ["breakfast", "lunch", "dinner", "snack"]);
+            $table->enum("unit", ["ml", "grams"]);
+            $table->boolean("is_custom");
+            $table->morphs("created_by");
+            $table->string("image_url");
             $table->timestamps();
         });
     }
