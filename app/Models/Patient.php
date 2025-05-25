@@ -21,7 +21,7 @@ class Patient extends Authenticatable
     public const TABLE_NAME = 'patients';
 
     public const GUARD_NAME = "patient";
-    public const API_GUARD_NAME = "patient-api";
+    public const API_GUARD_NAME = "patient_api";
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new PatientResetPassword($token));

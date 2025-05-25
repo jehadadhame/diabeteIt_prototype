@@ -44,7 +44,7 @@ return [
             'driver' => 'session',
             'provider' => 'patients',
         ],
-        'patient-api' => [
+        'patient_api' => [
             'driver' => 'sanctum',
             'provider' => 'patients',
         ],
@@ -55,6 +55,14 @@ return [
         'health_care_provider_api' => [
             'driver' => 'sanctum',
             'provider' => 'health_care_providers',
+        ],
+        'administrator' => [
+            'driver' => 'session',
+            'provider' => 'administrators',
+        ],
+        'administrator_api' => [
+            'driver' => 'sanctum',
+            'provider' => 'administrators',
         ],
     ],
 
@@ -88,6 +96,10 @@ return [
         'health_care_providers' => [
             'driver' => 'eloquent',
             'model' => App\Models\HealthCareProvider::class,
+        ],
+        'administrators' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Administrator::class,
         ],
 
         // 'users' => [
@@ -129,6 +141,11 @@ return [
         ],
         'health_care_providers' => [
             'provider' => 'health_care_providers',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+        ],
+        'administrators' => [
+            'provider' => 'administrators',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
         ],
