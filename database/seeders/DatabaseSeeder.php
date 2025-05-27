@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Administrator;
 use App\Models\HealthCareProvider;
 use App\Models\Patient;
 use App\Models\User;
@@ -36,6 +37,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'dietitian 0',
             'email' => 'dietitian_0@example.com',
             'service_type' => "dietitians"
+        ]);
+
+        Administrator::factory()->create([
+            'name' => 'admin 0',
+            'email' => 'admin_0@example.com',
         ]);
 
     }

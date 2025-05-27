@@ -17,8 +17,9 @@ class HealthCareProviderLoginController extends Controller
         ]);
 
         if (!Auth::guard('health_care_provider')->attempt($credentials)) {
-            return response()->json(["message" => "Invalid credentials"], 401);
+            return response()->json(["message" => "incorrect credentials"], 401);
         }
+        /** @var \App\Models\Administrator $user */
         $user = Auth::guard("health_care_provider")->user();
         $token = $user->createToken(name: 'api-token')->plainTextToken;
         return response()->json(

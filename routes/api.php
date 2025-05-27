@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\administrator\AdministratorHomePageController;
+use App\Http\Controllers\administrator\AdministratorLoginController;
+use App\Http\Controllers\administrator\AdministratorLogoutController;
 use App\Http\Controllers\health_care_provider\auth\HealthCareProviderLoginController;
 use App\Http\Controllers\health_care_provider\HealthCareProviderHomePageController;
 use App\Http\Controllers\health_care_provider\HealthCareProviderLogoutController;
 use App\Http\Controllers\patient\auth\PatientForgotPasswordController;
 use App\Http\Controllers\patient\auth\PatientLoginController;
 use App\Http\Controllers\patient\auth\PatientLogoutController;
+use App\Models\Administrator;
 use App\Models\HealthCareProvider;
 use App\Models\Patient;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +41,7 @@ Route::group(
                 Route::post('/login', [PatientLoginController::class, 'login'])->name('api.patient.auth.login');
                 Route::middleware('auth:' . Patient::API_GUARD_NAME)
                     ->post('logout', [PatientLogoutController::class, 'logout'])
-                    ->name("api.health-care-provider.auth.logout");
+                    ->name("api.patient.auth.logout");
 
                 Route::group(
                     ['prefix' => "forgot-password"],
@@ -68,6 +72,28 @@ Route::group(
                 Route::middleware('auth:' . HealthCareProvider::API_GUARD_NAME)
                     ->post('logout', [HealthCareProviderLogoutController::class, 'logout'])
                     ->name("api.health-care-provider.auth.logout");
+            }
+        );
+    }
+);
+
+Route::group(
+    ['prefix' => "administrator"],
+    // uri : api/administrator
+    function () {
+        Route::middleware('auth:' . Administrator::API_GUARD_NAME)
+            ->get('index', [AdministratorHomePageController::class, 'index']);
+
+        Route::group(
+            ['prefix' => 'auth'],
+            // uri : api/administrator/auth
+            function () {
+                Route::post('login', [AdministratorLoginController::class, 'login'])
+                    ->name("api.administrator.auth.login");
+
+                Route::middleware('auth:' . Administrator::API_GUARD_NAME)
+                    ->post('logout', [AdministratorLogoutController::class, 'logout'])
+                    ->name("api.administrator.auth.logout");
             }
         );
     }

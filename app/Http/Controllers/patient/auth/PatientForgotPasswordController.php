@@ -23,7 +23,7 @@ class PatientForgotPasswordController extends Controller
         $status = Password::broker('patients')->sendResetLink(['email' => $request->email]);
         return response()->json([
             'message' => $status,
-            // 'message' => __($status),
+            '__message' => __($status),
         ], $status === Password::RESET_LINK_SENT ? 200 : 400);
     }
     public function resetPasswordForm($token)
