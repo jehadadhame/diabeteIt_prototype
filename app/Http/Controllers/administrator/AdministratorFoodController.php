@@ -29,39 +29,39 @@ class AdministratorFoodController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
 
-        $data = $request->validate([
-            "name" => ["required", "string"],
-            "calories" => ["required", "numeric"],
-            "carbs_grams" => ["required", "numeric"],
-            "fiber_grams" => ["required", "numeric"],
-            "protein_grams" => ["required", "numeric"],
-            "fat_grams" => ["required", "numeric"],
-            "net_carbs" => ["required", "numeric"],
-            "glycemic_index" => ["required", "integer"],
-            "glycemic_load" => ["required", "numeric"],
-            "unit" => ["required", "in:ml,grams"],
-            "image" => ["required", 'image'],
-        ]);
+        // $data = $request->validate([
+        //     "name" => ["required", "string"],
+        //     "calories" => ["required", "numeric"],
+        //     "carbs_grams" => ["required", "numeric"],
+        //     "fiber_grams" => ["required", "numeric"],
+        //     "protein_grams" => ["required", "numeric"],
+        //     "fat_grams" => ["required", "numeric"],
+        //     "net_carbs" => ["required", "numeric"],
+        //     "glycemic_index" => ["required", "integer"],
+        //     "glycemic_load" => ["required", "numeric"],
+        //     "unit" => ["required", "in:ml,grams"],
+        //     "image" => ["required", 'image'],
+        // ]);
 
-        $file = $data['image'];
-        $image_name = upload_image($file, Food::ORIGINAL_IMAGES_PATH, Food::SMALL_IMAGES_PATH);
-        $data['image_name'] = $image_name;
-        unset($data['image']);
+        // $file = $data['image'];
+        // $image_name = upload_image($file, Food::ORIGINAL_IMAGES_PATH, Food::SMALL_IMAGES_PATH);
+        // $data['image_name'] = $image_name;
+        // unset($data['image']);
 
-        if ($image_name) {
-            if (Food::create($data)) {
-                return response()->json([
-                    "message" => "data inserted successfuly",
-                ]);
-            }
+        // if ($image_name) {
+        //     if (Food::create($data)) {
+        //         return response()->json([
+        //             "message" => "data inserted successfuly",
+        //         ]);
+        //     }
 
-        }
-        return response()->json([
-            'message' => "faild",
-        ]);
+        // }
+        // return response()->json([
+        //     'message' => "faild",
+        // ]);
     }
 
     /**
@@ -104,7 +104,7 @@ class AdministratorFoodController extends Controller
         ]);
         if (array_key_exists('image', $data)) {
             $file = $data['image'];
-            $image_name = upload_image($file, Food::ORIGINAL_IMAGES_PATH, Food::SMALL_IMAGES_PATH);
+            $image_name = "";//upload_image($file, Food::ORIGINAL_IMAGES_PATH, Food::SMALL_IMAGES_PATH);
             $data['image_name'] = $image_name;
             unset($data['image']);
             if (!$image_name) {
