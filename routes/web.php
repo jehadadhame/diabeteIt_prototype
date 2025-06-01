@@ -42,9 +42,19 @@ Route::get('/run-command', function () {
     // if (request('key') !== env('MIGRATION_KEY')) {
     //     abort(403, 'Unauthorized');
     // }
-    Artisan::call('migrate:fresh --force');
-    Artisan::call('db:seed --force');
-    return 'Migration and seeding complete.';
+    try {
+        Artisan::call('migrate:fresh --force');
+        Artisan::call('db:seed --force');
+        return response()->json([
+            'status' => 'success',
+            'migrate_output' => Artisan::output()
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
 });
 
 Route::get('/clear-cache', function () {
