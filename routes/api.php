@@ -183,10 +183,25 @@ Route::get('/env-check', function () {
 Route::get('/clear-config', function () {
     Artisan::call('config:clear');
     Artisan::call('config:cache');
-    return 'Config and cache cleared';
+    return 'Config cache cleared';
 });
 Route::get('/clear-route', function () {
     Artisan::call('route:clear');
     Artisan::call('route:cache');
-    return 'Config and cache cleared';
+    return 'route cache cleared';
+});
+
+
+Route::get('/get-connection-info', function () {
+    return response()->json([
+        'url' => env('DB_URL'),
+        'host' => env('DB_HOST'),
+        'port' => env('DB_PORT'),
+        'database' => env('DB_DATABASE'),
+        'username' => env('DB_USERNAME'),
+        'password' => env('DB_PASSWORD'),
+        'unix_socket' => env('DB_SOCKET'),
+        'charset' => env('DB_CHARSET', 'utf8mb4'),
+        'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+    ]);
 });
