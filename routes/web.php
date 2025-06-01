@@ -42,9 +42,17 @@ Route::get('/run-command', function () {
     // if (request('key') !== env('MIGRATION_KEY')) {
     //     abort(403, 'Unauthorized');
     // }
-
     Artisan::call('migrate:fresh --force');
     Artisan::call('db:seed --force');
-
     return 'Migration and seeding complete.';
+});
+
+Route::get('/clear-cache', function () {
+    if (request('key') !== env('MIGRATION_KEY')) {
+        abort(403, 'Unauthorized');
+    }
+
+    Artisan::call('optimize:clear'); // Clears all caches: config, route, view, etc.
+
+    return 'All Laravel caches cleared.';
 });
