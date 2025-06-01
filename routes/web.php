@@ -88,3 +88,34 @@ Route::get('/clear-cache', function () {
 
     return 'All Laravel caches cleared.';
 });
+
+
+Route::get('/read-log', function () {
+    $logFile = storage_path('logs/laravel.log');
+
+    if (!file_exists($logFile)) {
+        return 'Log file does not exist.';
+    }
+
+    $lines = collect(file($logFile))->take(-30)->implode('');
+
+    return nl2br(e($lines));
+});
+
+Route::get('/test-error', function () {
+    throw new \Exception('Test exception works!');
+});
+
+Route::get('/env-check', function () {
+    return response()->json([
+        'app_env' => env('APP_ENV'),
+        'app_debug' => env('APP_DEBUG'),
+    ]);
+});
+
+Route::get('/clear-config', function () {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+
+    return 'Config and cache cleared';
+});
