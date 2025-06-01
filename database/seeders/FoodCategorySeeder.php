@@ -13,7 +13,7 @@ class FoodCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $file_path = database_path('seeders\\data\\category.csv');
+        $file_path = database_path('seeders/data/category.csv');
         if (!file_exists($file_path) || !is_readable($file_path)) {
             echo $file_path;
             return;

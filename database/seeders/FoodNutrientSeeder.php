@@ -16,7 +16,7 @@ class FoodNutrientSeeder extends Seeder
      */
     public function run(): void
     {
-        $file_path = database_path('seeders\\data\\food_nutrient.csv');
+        $file_path = database_path('seeders/data/food_nutrient.csv');
         if (!file_exists($file_path) || !is_readable($file_path)) {
             echo "can't read this file : " . $file_path;
         }
