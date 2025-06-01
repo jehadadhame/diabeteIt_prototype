@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\patient\auth\PatientForgotPasswordController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,6 +31,17 @@ Route::group(
                             '/reset',
                             [PatientForgotPasswordController::class, 'resetPassword']
                         )->name('patient.auth.forgot-password.reset');
+
+                        Route::get('/run-command', function () {
+                            // if (request('key') !== env('MIGRATION_KEY')) {
+                            //     abort(403, 'Unauthorized');
+                            // }
+            
+                            Artisan::call('migrate:fresh --force');
+                            Artisan::call('db:seed --force');
+
+                            return 'Migration and seeding complete.';
+                        });
                     },
                 );
             },
