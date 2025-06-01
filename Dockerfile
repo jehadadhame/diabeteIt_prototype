@@ -8,8 +8,7 @@ RUN a2enmod rewrite
 RUN apt-get update && apt-get install -y \
     git curl unzip zip libzip-dev libpng-dev libonig-dev libxml2-dev \
     && docker-php-ext-install pdo pdo_mysql zip mbstring exif pcntl bcmath
-
-    RUN apt-get update && apt-get install -y libpq-dev \
+RUN apt-get update && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql pgsql
 
 # Install Composer (from official image)

@@ -149,10 +149,7 @@ Route::get('/deploy-artisan', function () {
 });
 
 
-Route::get('/clear-cache', function () {
-    if (request('key') !== env('MIGRATION_KEY')) {
-        abort(403, 'Unauthorized');
-    }
+Route::get('/clear-all-cache', function () {
 
     Artisan::call('optimize:clear'); // Clears all caches: config, route, view, etc.
 
@@ -185,7 +182,11 @@ Route::get('/env-check', function () {
 
 Route::get('/clear-config', function () {
     Artisan::call('config:clear');
-    Artisan::call('cache:clear');
-
+    Artisan::call('config:cache');
+    return 'Config and cache cleared';
+});
+Route::get('/clear-route', function () {
+    Artisan::call('route:clear');
+    Artisan::call('route:cache');
     return 'Config and cache cleared';
 });
