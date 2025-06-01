@@ -195,6 +195,7 @@ Route::get('/clear-route', function () {
 Route::get('/get-connection-info', function () {
     return response()->json([
         'url' => env('DB_URL'),
+        'connection type' => env('DB_CONNECTION'),
         'host' => env('DB_HOST'),
         'port' => env('DB_PORT'),
         'database' => env('DB_DATABASE'),
