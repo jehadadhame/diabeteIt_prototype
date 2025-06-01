@@ -57,6 +57,28 @@ Route::get('/run-command', function () {
     }
 });
 
+
+Route::get('/deploy-artisan', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        Artisan::call('db:seed', ['--force' => true]);
+
+        return response()->json([
+            'status' => 'success',
+            'output' => Artisan::output(),
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+            'trace' => explode("\n", $e->getTraceAsString())
+        ], 500);
+    }
+});
+
+
 Route::get('/clear-cache', function () {
     if (request('key') !== env('MIGRATION_KEY')) {
         abort(403, 'Unauthorized');
