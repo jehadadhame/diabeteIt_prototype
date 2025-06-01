@@ -23,7 +23,7 @@ class Meal extends Model
         "unit",
         "is_custom",
         "created_by",
-        "image_url",
+        "image_name",
     ];
 
     public function patients(): MorphToMany

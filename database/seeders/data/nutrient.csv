@@ -1,0 +1,475 @@
+,id,name,unit_name,type,is_required,arabic_name
+0,2047,Energy (Atwater General Factors),KCAL,macronutrient,0,الطاقة (العوامل العامة Atwater)
+1,2048,Energy (Atwater Specific Factors),KCAL,macronutrient,0,الطاقة (عوامل محددة من Atwater)
+2,1001,Solids,G,other,0,المواد الصلبة
+3,1002,Nitrogen,G,other,0,نتروجين
+4,1003,Protein,G,macronutrient,0,بروتين
+5,1004,Total lipid (fat),G,macronutrient,0,إجمالي الدهون (الدهون)
+6,1005,"Carbohydrate, by difference",G,macronutrient,1,الكربوهيدرات ، عن طريق الاختلاف
+7,1006,"Fiber, crude (DO NOT USE - Archived)",G,macronutrient,0,الألياف ، الخام (لا تستخدم - أرشفة)
+8,1007,Ash,G,other,0,رماد
+9,1008,Energy,KCAL,macronutrient,1,طاقة
+10,1009,Starch,G,macronutrient,0,نشا
+11,1010,Sucrose,G,other,0,السكروز
+12,1011,Glucose,G,macronutrient,0,الجلوكوز
+13,1012,Fructose,G,macronutrient,0,الفركتوز
+14,1013,Lactose,G,macronutrient,0,اللاكتوز
+15,1014,Maltose,G,macronutrient,0,المالتوز
+16,1015,Amylose,G,other,0,الأميلوز
+17,1016,Amylopectin,G,other,0,الأميلوبكتين
+18,1017,Pectin,G,other,0,البكتين
+19,1019,Pentosan,G,other,0,البنتوسان
+20,1020,Pentoses,G,other,0,بنتوس
+21,1021,Hemicellulose,G,other,0,هيميسيلوز
+22,1022,Cellulose,G,other,0,السليلوز
+23,1023,pH,PH,other,0,PH
+24,1024,Specific Gravity,SP_GR,other,0,الثقل النوعي
+25,1025,Organic acids,G,other,0,الأحماض العضوية
+26,1026,Acetic acid,MG,other,0,حمض الخليك
+27,1027,Aconitic acid,MG,other,0,حمض الأنيتيك
+28,1028,Benzoic acid,MG,other,0,حمض البنزويك
+29,1029,Chelidonic acid,MG,other,0,حمض chelidonic
+30,1030,Chlorogenic acid,MG,other,0,حمض الكلوروجين
+31,1031,Cinnamic acid,MG,other,0,حمض السيناميك
+32,1032,Citric acid,MG,other,0,حامض الستريك
+33,1033,Fumaric acid,MG,other,0,حمض الفوماريك
+34,1034,Galacturonic acid,MG,other,0,حمض المجرة
+35,1035,Gallic acid,MG,other,0,حمض غاليك
+36,1036,Glycolic acid,MG,other,0,حمض الجليكوليك
+37,1037,Isocitric acid,MG,other,0,حمض الإيزوسيتريك
+38,1038,Lactic acid,MG,other,0,حمض اللبنيك
+39,1039,Malic acid,MG,other,0,حمض الماليك
+40,1040,Oxaloacetic acid,MG,other,0,حمض الأكسالو أسيتيك
+41,1041,Oxalic acid,MG,other,0,حمض الفيتيك
+42,1042,Phytic acid,MG,other,0,حمض الفيتيك
+43,1043,Pyruvic acid,MG,other,0,حمض البيروفيك
+44,1044,Quinic acid,MG,other,0,حمض الكينيك
+45,1045,Salicylic acid,MG,other,0,حمض الساليسيليك
+46,1046,Succinic acid,MG,other,0,حمض سكسينيك
+47,1047,Tartaric acid,MG,other,0,حمض التتار
+48,1048,Ursolic acid,MG,other,0,حمض أورسوليك
+49,1049,"Solids, non-fat",G,other,0,المواد الصلبة ، غير الدهون
+50,1050,"Carbohydrate, by summation",G,macronutrient,0,الكربوهيدرات ، عن طريق الجمع
+51,1051,Water,G,macronutrient,0,النيتروجين المعدل
+52,1052,Adjusted Nitrogen,G,other,0,النيتروجين المعدل
+53,1053,Adjusted Protein,G,macronutrient,0,البروتين المعدل
+54,1054,Piperine,G,other,0,بايبرين
+55,1055,Mannitol,G,other,0,مانيتول
+56,1056,Sorbitol,G,other,0,سوربيتول
+57,1057,Caffeine,MG,other,0,الكافيين
+58,1058,Theobromine,MG,other,0,ثيوبرومين
+59,1059,Nitrates,MG,other,0,النترات
+60,1060,Nitrites,MG,other,0,النيتريت
+61,1061,"Nitrosamine,total",MG,other,0,النيتروسامين ، مجموع
+62,1062,Energy,kJ,macronutrient,0,طاقة
+63,1063,"Sugars, Total",G,macronutrient,0,السكريات ، مجموع
+64,1064,"Solids, soluble",G,other,0,المواد الصلبة ، قابلة للذوبان
+65,1065,Glycogen,G,other,0,الجليكوجين
+66,1066,"Fiber, neutral detergent (DO NOT USE - Archived)",G,macronutrient,0,الألياف ، المنظفات المحايدة (لا تستخدم - أرشفة)
+67,1067,Reducing sugars,G,macronutrient,0,تقليل السكريات
+68,1068,Beta-glucans,G,other,0,بيتا الجلوكان
+69,1069,Oligosaccharides,G,other,0,قلة السكريات
+70,1070,Nonstarch polysaccharides,G,macronutrient,0,عدد السكاريد غير الناقص
+71,1071,Resistant starch,G,macronutrient,0,نشا مقاومة
+72,1072,"Carbohydrate, other",G,macronutrient,0,الكربوهيدرات ، والآخر
+73,1073,Arabinose,G,other,0,أرابينوز
+74,1074,Xylose,G,other,0,الزيلوز سكر الخشب
+75,1075,Galactose,G,other,0,الجالاكتوز
+76,1076,Raffinose,G,other,0,رافينوز
+77,1077,Stachyose,G,other,0,الستاتشي
+78,1078,Xylitol,G,other,0,إكسيليتول
+79,1079,"Fiber, total dietary",G,macronutrient,0,الألياف ، مجموع الغذائي
+80,1080,Lignin,G,other,0,اللجنين
+81,1081,Ribose,G,other,0,ريبوز
+82,1082,"Fiber, soluble",G,macronutrient,0,الألياف ، قابلة للذوبان
+83,1083,Theophylline,MG,other,0,ثيوفيلين
+84,1084,"Fiber, insoluble",G,macronutrient,0,الألياف ، غير قابلة للذوبان
+85,1085,Total fat (NLEA),G,macronutrient,0,إجمالي الدهون (NLEA)
+86,1087,"Calcium, Ca",MG,mineral,0,الكالسيوم ، كاليفورنيا
+87,1088,"Chlorine, Cl",MG,other,0,الكلور ، Cl
+88,1089,"Iron, Fe",MG,mineral,0,الحديد ، في
+89,1090,"Magnesium, Mg",MG,mineral,0,المغنيسيوم ، ملغ
+90,1091,"Phosphorus, P",MG,mineral,0,الفوسفور ، ص
+91,1092,"Potassium, K",MG,mineral,0,البوتاسيوم ، ك
+92,1093,"Sodium, Na",MG,mineral,0,الصوديوم ، نا
+93,1094,"Sulfur, S",MG,other,0,الكبريت ، ق
+94,1095,"Zinc, Zn",MG,mineral,0,كروم ، كر
+95,1096,"Chromium, Cr",UG,mineral,0,كروم ، كر
+96,1097,"Cobalt, Co",UG,other,0,كوبالت ، شارك
+97,1098,"Copper, Cu",MG,mineral,0,النحاس ، النحاس
+98,1099,"Fluoride, F",UG,mineral,0,فلوريد ، و
+99,1100,"Iodine, I",UG,mineral,0,اليود ، أنا
+100,1101,"Manganese, Mn",MG,mineral,0,المنجنيز ، مينيسوتا
+101,1102,"Molybdenum, Mo",UG,mineral,0,الموليبدينوم ، مو
+102,1103,"Selenium, Se",UG,mineral,0,السيلينيوم ، س
+103,1104,"Vitamin A, IU",IU,vitamin,0,فيتامين أ ، IU
+104,1105,Retinol,UG,other,0,الريتينول
+105,1106,"Vitamin A, RAE",UG,vitamin,0,فيتامين أ ، راي
+106,1107,"Carotene, beta",UG,other,0,كاروتين ، بيتا
+107,1108,"Carotene, alpha",UG,other,0,كاروتين ، ألفا
+108,1109,Vitamin E (alpha-tocopherol),MG,vitamin,0,فيتامين E (ألفا توكوفيرول)
+109,1110,"Vitamin D (D2 + D3), International Units",IU,vitamin,0,فيتامين د (D2 + D3) ، الوحدات الدولية
+110,1111,Vitamin D2 (ergocalciferol),UG,vitamin,0,فيتامين D2 (ergocalciferol)
+111,1112,Vitamin D3 (cholecalciferol),UG,vitamin,0,25-hydroxycholecalciferol
+112,1113,25-hydroxycholecalciferol,UG,other,0,25-hydroxycholecalciferol
+113,1114,Vitamin D (D2 + D3),UG,vitamin,0,فيتامين د (D2 + D3)
+114,1115,25-hydroxyergocalciferol,UG,other,0,25-Hydroxyergocalciferol
+115,1116,Phytoene,UG,other,0,فيتوين
+116,1117,Phytofluene,UG,other,0,فيتوفلوين
+117,1118,"Carotene, gamma",UG,other,0,كاروتين ، جاما
+118,1119,Zeaxanthin,UG,other,0,زياكسانثين
+119,1120,"Cryptoxanthin, beta",UG,other,0,Cryptoxanthin ، بيتا
+120,1121,Lutein,UG,other,0,لوتين
+121,1122,Lycopene,UG,other,0,اللايكوبين
+122,1123,Lutein + zeaxanthin,UG,other,0,اللوتين + زياكسانثين
+123,1124,Vitamin E (label entry primarily),IU,vitamin,0,فيتامين E (إدخال الملصقات في المقام الأول)
+124,1125,"Tocopherol, beta",MG,other,0,توكوفيرول ، بيتا
+125,1126,"Tocopherol, gamma",MG,other,0,توكوفيرول ، جاما
+126,1127,"Tocopherol, delta",MG,other,0,توكوفيرول ، دلتا
+127,1128,"Tocotrienol, alpha",MG,other,0,توكوترينول ، ألفا
+128,1129,"Tocotrienol, beta",MG,other,0,توكوترينول ، بيتا
+129,1130,"Tocotrienol, gamma",MG,other,0,توكوترينول ، جاما
+130,1131,"Tocotrienol, delta",MG,other,0,توكوترينول ، دلتا
+131,1132,"Aluminum, Al",UG,other,0,الألومنيوم ، آل
+132,1133,"Antimony, Sb",UG,other,0,الأنتيمون ، SB
+133,1134,"Arsenic, As",UG,other,0,الزرنيخ ، كما
+134,1135,"Barium, Ba",UG,other,0,باريوم ، با
+135,1136,"Beryllium, Be",UG,other,0,البريليوم ، يكون
+136,1137,"Boron, B",UG,other,0,بورون ، ب
+137,1138,"Bromine, Br",UG,other,0,بروم ، بر
+138,1139,"Cadmium, Cd",UG,other,0,الكادميوم ، قرص مضغوط
+139,1140,"Gold, Au",UG,other,0,الذهب ، الاتحاد الافريقي
+140,1141,"Iron, heme",MG,mineral,0,الحديد ، الهيم
+141,1142,"Iron, non-heme",MG,mineral,0,الحديد ، غير الهيم
+142,1143,"Lead, Pb",UG,other,0,الرصاص ، PB
+143,1144,"Lithium, Li",UG,other,0,الليثيوم ، لي
+144,1145,"Mercury, Hg",UG,other,0,الزئبق ، زئبق
+145,1146,"Nickel, Ni",UG,other,0,النيكل ، ني
+146,1147,"Rubidium, Rb",UG,other,0,روبيديوم ، RB
+147,1148,Fluoride - DO NOT USE; use 313,UG,mineral,0,فلوريد - لا تستخدم ؛ استخدم 313
+148,1149,"Salt, NaCl",MG,macronutrient,0,الملح ، كلوريد الصوديوم
+149,1150,"Silicon, Si",UG,other,0,السيليكون ، سي
+150,1151,"Silver, Ag",UG,other,0,الفضة ، AG
+151,1152,"Strontium, Sr",UG,other,0,السترونتيوم ، ريال
+152,1153,"Tin, Sn",UG,other,0,القصدير ، sn
+153,1154,"Titanium, Ti",UG,other,0,التيتانيوم ، تي
+154,1155,"Vanadium, V",UG,other,0,فاناديوم ، ضد
+155,1156,"Vitamin A, RE",MCG_RE,vitamin,0,فيتامين أ ، إعادة
+156,1157,Carotene,MCG_RE,other,0,كاروتين
+157,1158,Vitamin E,MG_ATE,vitamin,0,فيتامين ه
+158,1159,cis-beta-Carotene,UG,other,0,CIS-Beta-Carotene
+159,1160,cis-Lycopene,UG,other,0,CIS-Lycopene
+160,1161,cis-Lutein/Zeaxanthin,UG,other,0,CIS-lutein/Zeaxanthin
+161,1162,"Vitamin C, total ascorbic acid",MG,vitamin,0,فيتامين C ، حمض الأسكوربيك الكلي
+162,1163,"Vitamin C, reduced ascorbic acid",MG,vitamin,0,فيتامين C ، انخفاض حمض الأسكوربيك
+163,1164,"Vitamin C, dehydro ascorbic acid",MG,vitamin,0,فيتامين C ، حمض أسكوربيك ديهيدرو
+164,1165,Thiamin,MG,vitamin,0,الثيامين
+165,1166,Riboflavin,MG,other,0,الريبوفلافين
+166,1167,Niacin,MG,mineral,0,النياسين
+167,1168,"Niacin from tryptophan, determined",MG,other,0,النياسين من التربتوفان ، مصمم
+168,1169,Niacin equivalent N406 +N407,MG,other,0,Niacin ما يعادل N406 +N407
+169,1170,Pantothenic acid,MG,other,0,حمض البانتوثنيك
+170,1172,"Vitamin B-6, pyridoxal, aldehyde form",MG,other,0,فيتامين ب 6 ، شكل بيريدوكسال ، ألدهيد
+171,1173,"Vitamin B-6, pyridoxamine, amine form",MG,other,0,فيتامين ب 6 ، بيريدوكسامين ، شكل أمين
+172,1174,"Vitamin B-6, N411 + N412 +N413",MG,other,0,فيتامين B-6 ، N411 + N412 + N413
+173,1175,Vitamin B-6,MG,vitamin,0,فيتامين ب 6
+174,1176,Biotin,UG,vitamin,0,البيوتين
+175,1177,"Folate, total",UG,vitamin,0,حمض الفوليك ، مجموع
+176,1178,Vitamin B-12,UG,vitamin,0,فيتامين ب 12
+177,1179,"Folate, free",UG,vitamin,0,حمض الفوليك ، مجانا
+178,1180,"Choline, total",MG,vitamin,0,الكولين ، مجموع
+179,1181,Inositol,MG,other,0,إينوسيتول
+180,1182,Inositol phosphate,MG,other,0,إينوسيتول فوسفات
+181,1183,Vitamin K (Menaquinone-4),UG,vitamin,0,فيتامين K (Menaquinone-4)
+182,1184,Vitamin K (Dihydrophylloquinone),UG,vitamin,0,فيتامين ك (ديهيدروفيلوكينون)
+183,1185,Vitamin K (phylloquinone),UG,vitamin,0,فيتامين ك (فيلوكينون)
+184,1186,Folic acid,UG,vitamin,0,حمض الفوليك
+185,1187,"Folate, food",UG,vitamin,0,حمض الفوليك ، الطعام
+186,1188,5-methyl tetrahydrofolate (5-MTHF),UG,vitamin,0,5-ميثيل رباعي هيدروفولات (5-MTHF)
+187,1189,"Folate, not 5-MTHF",UG,vitamin,0,حمض الفوليك ، وليس 5-MTHF
+188,1190,"Folate, DFE",UG,vitamin,0,حمض الفوليك ، DFE
+189,1191,10-Formyl folic acid (10HCOFA),UG,vitamin,0,حمض الفوليك 10 فورمديل (10hcofa)
+190,1192,5-Formyltetrahydrofolic acid (5-HCOH4,UG,vitamin,0,5-formyltetrahydrofolic acid (5-HCOH4
+191,1193,Tetrahydrofolic acid (THF),UG,vitamin,0,حمض رباعي هيدروفوليك (THF)
+192,1194,"Choline, free",MG,vitamin,0,الكولين ، مجانا
+193,1195,"Choline, from phosphocholine",MG,vitamin,0,الكولين ، من الكولين الفوسفوتيديل
+194,1196,"Choline, from phosphotidyl choline",MG,vitamin,0,الكولين ، من الكولين الفوسفوتيديل
+195,1197,"Choline, from glycerophosphocholine",MG,vitamin,0,الكولين ، من الجليسرينوفوسفوشولين
+196,1198,Betaine,MG,other,0,البيتين
+197,1199,"Choline, from sphingomyelin",MG,vitamin,0,الكولين ، من sphingomyelin
+198,1200,p-Hydroxy benzoic acid,MG,other,0,P-hydroxy حمض البنزويك
+199,1201,Caffeic acid,MG,other,0,حمض الكافيين
+200,1202,p-Coumaric acid,MG,other,0,حمض P-Coumaric
+201,1203,Ellagic acid,MG,other,0,حمض الإيلاجيك
+202,1204,Ferrulic acid,MG,other,0,حمض الفيريريك
+203,1205,Gentisic acid,MG,other,0,حمض الجندي
+204,1206,Tyrosol,MG,other,0,التيرووسول
+205,1207,Vanillic acid,MG,other,0,حمض الفانيليا
+206,1208,"Phenolic acids, total",MG,other,0,الأحماض الفينولية ، مجموع
+207,1209,"Polyphenols, total",MG,other,0,polyphenols ، مجموع
+208,1210,Tryptophan,G,other,0,التربتوفان
+209,1211,Threonine,G,other,0,ثريونين
+210,1212,Isoleucine,G,other,0,إيزوليوسين
+211,1213,Leucine,G,other,0,يوسين
+212,1214,Lysine,G,other,0,ليسين
+213,1215,Methionine,G,other,0,الميثيونين
+214,1216,Cystine,G,other,0,فينيل ألانين
+215,1217,Phenylalanine,G,other,0,فينيل ألانين
+216,1218,Tyrosine,G,other,0,التيروزين
+217,1219,Valine,G,other,0,فالين
+218,1220,Arginine,G,other,0,أرجينين
+219,1221,Histidine,G,other,0,الهستيدين
+220,1222,Alanine,G,other,0,ألانين
+221,1223,Aspartic acid,G,other,0,حمض الأسبارتيك
+222,1224,Glutamic acid,G,other,0,حمض الجلوتاميك
+223,1225,Glycine,G,other,0,جليكاين
+224,1226,Proline,G,other,0,البرولين
+225,1227,Serine,G,other,0,سيرين
+226,1228,Hydroxyproline,G,other,0,هيدروكسي برولين
+227,1229,Cysteine and methionine(sulfer containig AA),G,other,0,السيستين والميثيونين (sulfer يحتوي على AA)
+228,1230,Phenylalanine and tyrosine (aromatic  AA),G,other,0,الهليون
+229,1231,Asparagine,G,other,0,الهليون
+230,1232,Cysteine,G,other,0,سيستين
+231,1233,Glutamine,G,other,0,الجلوتامين
+232,1234,Taurine,G,other,0,توراين
+233,1235,"Sugars, added",G,macronutrient,0,السكريات ، وأضاف
+234,1236,"Sugars, intrinsic",G,macronutrient,0,الكالسيوم ، وأضاف
+235,1237,"Calcium, added",MG,mineral,0,الكالسيوم ، وأضاف
+236,1238,"Iron, added",MG,mineral,0,الحديد ، وأضاف
+237,1239,"Calcium, intrinsic",MG,mineral,0,الكالسيوم ، الجوهرية
+238,1240,"Iron, intrinsic",MG,mineral,0,الحديد ، الجوهرية
+239,1241,"Vitamin C, added",MG,vitamin,0,فيتامين C ، وأضاف
+240,1242,"Vitamin E, added",MG,vitamin,0,وأضاف الثيامين
+241,1243,"Thiamin, added",MG,vitamin,0,وأضاف الثيامين
+242,1244,"Riboflavin, added",MG,other,0,ريبوفلافين ، وأضاف
+243,1245,"Niacin, added",MG,other,0,niacin ، وأضاف
+244,1246,"Vitamin B-12, added",UG,vitamin,0,فيتامين ب 12 ، وأضاف
+245,1247,"Vitamin C, intrinsic",MG,vitamin,0,فيتامين C ، جوهري
+246,1248,"Vitamin E, intrinsic",MG,vitamin,0,فيتامين E ، جوهري
+247,1249,"Thiamin, intrinsic",MG,vitamin,0,الثيامين ، جوهري
+248,1250,"Riboflavin, intrinsic",MG,other,0,الريبوفلافين ، جوهري
+249,1251,"Niacin, intrinsic",MG,other,0,النياسين ، جوهري
+250,1252,"Vitamin B-12, intrinsic",UG,vitamin,0,فيتامين ب 12 ، جوهري
+251,1253,Cholesterol,MG,macronutrient,0,الكوليسترول
+252,1254,Glycerides,G,other,0,جليسريدس
+253,1255,Phospholipids,G,other,0,الفسفوليبيد
+254,1256,Glycolipids,G,other,0,الجليكوليبيد
+255,1257,"Fatty acids, total trans",G,macronutrient,0,الأحماض الدهنية ، إجمالي العابرة
+256,1258,"Fatty acids, total saturated",G,macronutrient,0,الأحماض الدهنية ، إجمالي مشبعة
+257,1259,SFA 4:0,G,other,0,SFA 4: 0
+258,1260,SFA 6:0,G,other,0,SFA 8: 0
+259,1261,SFA 8:0,G,other,0,SFA 8: 0
+260,1262,SFA 10:0,G,other,0,SFA 10: 0
+261,1263,SFA 12:0,G,other,0,SFA 12: 0
+262,1264,SFA 14:0,G,other,0,SFA 14: 0
+263,1265,SFA 16:0,G,other,0,SFA 16: 0
+264,1266,SFA 18:0,G,other,0,SFA 18: 0
+265,1267,SFA 20:0,G,other,0,SFA 20: 0
+266,1268,MUFA 18:1,G,other,0,MUFA 18: 1
+267,1269,PUFA 18:2,G,other,0,PUFA 18: 2
+268,1270,PUFA 18:3,G,other,0,PUFA 18: 3
+269,1271,PUFA 20:4,G,other,0,PUFA 20: 4
+270,1272,PUFA 22:6 n-3 (DHA),G,other,0,PUFA 22: 6 N-3 (DHA)
+271,1273,SFA 22:0,G,other,0,SFA 22: 0
+272,1274,MUFA 14:1,G,other,0,MUFA 14: 1
+273,1275,MUFA 16:1,G,other,0,MUFA 16: 1
+274,1276,PUFA 18:4,G,other,0,PUFA 18: 4
+275,1277,MUFA 20:1,G,other,0,MUFA 20: 1
+276,1278,PUFA 20:5 n-3 (EPA),G,other,0,PUFA 20: 5 N-3 (EPA)
+277,1279,MUFA 22:1,G,other,0,MUFA 22: 1
+278,1280,PUFA 22:5 n-3 (DPA),G,other,0,PUFA 22: 5 N-3 (DPA)
+279,1281,TFA 14:1 t,G,other,0,TFA 14: 1 ر
+280,1283,Phytosterols,MG,other,0,phytosterols
+281,1284,Ergosterol,MG,other,0,ergosterol
+282,1285,Stigmasterol,MG,other,0,Stigmasterol
+283,1286,Campesterol,MG,other,0,كامبسترول
+284,1287,Brassicasterol,MG,other,0,بيتا سيتوستيرول
+285,1288,Beta-sitosterol,MG,other,0,بيتا سيتوستيرول
+286,1289,Campestanol,MG,other,0,كامبستانول
+287,1290,Unsaponifiable matter (lipids),G,other,0,مسألة غير قابلة للضغط (الدهون)
+288,1291,"Fatty acids, other than 607-615, 617-621, 624-632, 652-654, 686-689)",G,other,0,الأحماض الدهنية ، بخلاف 607-615 ، 617-621 ، 624-632 ، 652-654 ، 686-689)
+289,1292,"Fatty acids, total monounsaturated",G,macronutrient,0,الأحماض الدهنية ، إجمالي أحادي غير مشبع
+290,1293,"Fatty acids, total polyunsaturated",G,macronutrient,0,الأحماض الدهنية ، المشبعة الكلية غير المشبعة
+291,1294,Beta-sitostanol,MG,other,0,بيتا سيتوسانول
+292,1295,Delta-7-avenasterol,MG,other,0,Delta-7-Avenasterol
+293,1296,Delta-5-avenasterol,MG,other,0,ألفا سبيناسترول
+294,1297,Alpha-spinasterol,MG,other,0,ألفا سبيناسترول
+295,1298,"Phytosterols, other",MG,other,0,phytosterols ، أخرى
+296,1299,SFA 15:0,G,other,0,SFA 15: 0
+297,1300,SFA 17:0,G,other,0,SFA 17: 0
+298,1301,SFA 24:0,G,other,0,SFA 24: 0
+299,1302,Wax Esters(Total Wax),G,other,0,استرات الشمع (الشمع الكلي)
+300,1303,TFA 16:1 t,G,other,0,TFA 16: 1 ر
+301,1304,TFA 18:1 t,G,other,0,TFA 22: 1 ر
+302,1305,TFA 22:1 t,G,other,0,TFA 22: 1 ر
+303,1306,TFA 18:2 t not further defined,G,other,0,TFA 18: 2 T لم يتم تعريفه بشكل أكبر
+304,1307,PUFA 18:2 i,G,other,0,PUFA 18: 2 i
+305,1308,"PUFA 18:2 t,c",G,other,0,PUFA 18: 2 T ، ج
+306,1309,"PUFA 18:2 c,t",G,other,0,PUFA 18: 2 C ، T.
+307,1310,"TFA 18:2 t,t",G,other,0,TFA 18: 2 T ، T.
+308,1311,PUFA 18:2 CLAs,G,other,0,Pufa 18: 2 Clas
+309,1312,MUFA 24:1 c,G,other,0,MUFA 24: 1 ج
+310,1313,"PUFA 20:2 n-6 c,c",G,other,0,PUFA 20: 2 N-6 C ، C
+311,1314,MUFA 16:1 c,G,other,0,MUFA 16: 1 ج
+312,1315,MUFA 18:1 c,G,other,0,MUFA 18: 1 ج
+313,1316,"PUFA 18:2 n-6 c,c",G,other,0,PUFA 18: 2 N-6 C ، C
+314,1317,MUFA 22:1 c,G,other,0,MUFA 22: 1 ج
+315,1318,"Fatty acids, saturated, other",G,other,0,الأحماض الدهنية ، المشبعة ، أخرى
+316,1319,"Fatty acids, monounsat., other",G,other,0,الأحماض الدهنية ، monounsat ، أخرى
+317,1320,"Fatty acids, polyunsat., other",G,other,0,الأحماض الدهنية ، polyunsat ، أخرى
+318,1321,"PUFA 18:3 n-6 c,c,c",G,other,0,PUFA 18: 3 N-6 C ، C ، C
+319,1322,SFA 19:0,G,other,0,SFA 19: 0
+320,1323,MUFA 17:1,G,other,0,MUFA 17: 1
+321,1324,PUFA 16:2,G,other,0,PUFA 16: 2
+322,1325,PUFA 20:3,G,other,0,PUFA 20: 3
+323,1326,"Fatty acids, total sat., NLEA",G,other,0,الأحماض الدهنية ، إجمالي السبت ، nlea
+324,1327,"Fatty acids, total monounsat., NLEA",G,other,0,الأحماض الدهنية ، إجمالي monounsat. ، nlea
+325,1328,"Fatty acids, total polyunsat., NLEA",G,other,0,الأحماض الدهنية ، polyunsat الكلي ، nlea
+326,1329,"Fatty acids, total trans-monoenoic",G,other,0,الأحماض الدهنية ، إجمالي العابر المنوي
+327,1330,"Fatty acids, total trans-dienoic",G,other,0,الأحماض الدهنية ، إجمالي العابرة dienoic
+328,1331,"Fatty acids, total trans-polyenoic",G,other,0,الأحماض الدهنية ، الكلية عبر البولينيك
+329,1332,SFA 13:0,G,other,0,SFA 13: 0
+330,1333,MUFA 15:1,G,other,0,MUFA 15: 1
+331,1334,PUFA 22:2,G,other,0,PUFA 22: 2
+332,1335,SFA 11:0,G,other,0,SFA 11: 0
+333,1336,"ORAC, Hydrophyllic",UMOL_TE,other,0,أوراك ، hydrophyllic
+334,1337,"ORAC, Lipophillic",UMOL_TE,other,0,Orac ، lipophillic
+335,1338,"ORAC, Total",UMOL_TE,other,0,أوراك ، المجموع
+336,1339,Total Phenolics,MG_GAE,other,0,ديدزين
+337,1340,Daidzein,MG,other,0,ديدزين
+338,1341,Genistein,MG,other,0,جينيستين
+339,1342,Glycitein,MG,other,0,جليسيتين
+340,1343,Isoflavones,MG,other,0,isoflavones
+341,1344,Biochanin A,MG,other,0,Biochanin أ
+342,1345,Formononetin,MG,other,0,Formononetin
+343,1346,Coumestrol,MG,other,0,coumestrol
+344,1347,"Flavonoids, total",MG,other,0,الفلافونويد ، مجموع
+345,1348,Anthocyanidins,MG,other,0,الأنثوسيانيدين
+346,1349,Cyanidin,MG,other,0,السيانيدين
+347,1350,Proanthocyanidin (dimer-A linkage),MG,other,0,Proanthocyanidin (Dimer-A Linkage)
+348,1351,Proanthocyanidin monomers,MG,other,0,مونومر بروانثوسيانيدين
+349,1352,Proanthocyanidin dimers,MG,other,0,Proanthocyanidin dimers
+350,1353,Proanthocyanidin trimers,MG,other,0,بروانثوسيانيدين تدمر
+351,1354,Proanthocyanidin 4-6mers,MG,other,0,proanthocyanidin 4-6mers
+352,1355,Proanthocyanidin 7-10mers,MG,other,0,Proanthocyanidin 7-10Mers
+353,1356,Proanthocyanidin polymers (>10mers),MG,other,0,البوليمرات البروانثوسيانيدين (> 10 أفراد)
+354,1357,Delphinidin,MG,other,0,دلفينيدين
+355,1358,Malvidin,MG,other,0,مالفيدين
+356,1359,Pelargonidin,MG,other,0,بيلارجوندين
+357,1360,Peonidin,MG,other,0,peonidin
+358,1361,Petunidin,MG,other,0,البتراتين
+359,1362,"Flavans, total",MG,other,0,فلافان ، مجموع
+360,1363,"Catechins, total",MG,other,0,الكاتيكين ، مجموع
+361,1364,Catechin,MG,other,0,كاتشين
+362,1365,Epigallocatechin,MG,other,0,epigallocatechin
+363,1366,Epicatechin,MG,other,0,epicatechin
+364,1367,Epicatechin-3-gallate,MG,other,0,epicatechin-3-gallate
+365,1368,Epigallocatechin-3-gallate,MG,other,0,epigallocatechin-3-gallate
+366,1369,"Procyanidins, total",MG,other,0,Procyanidins ، مجموع
+367,1370,Theaflavins,MG,other,0,theaflavins
+368,1371,Thearubigins,MG,other,0,thearubigins
+369,1372,"Flavanones, total",MG,other,0,فلافانون ، مجموع
+370,1373,Eriodictyol,MG,other,0,eriodictyol
+371,1374,Hesperetin,MG,other,0,Hesperetin
+372,1375,Isosakuranetin,MG,other,0,Isosakuranetin
+373,1376,Liquiritigenin,MG,other,0,Liquiritigenin
+374,1377,Naringenin,MG,other,0,نارينينين
+375,1378,"Flavones, total",MG,other,0,فلافون ، مجموع
+376,1379,Apigenin,MG,other,0,apigenin
+377,1380,Chrysoeriol,MG,other,0,كرايسيريول
+378,1381,Diosmetin,MG,other,0,ديسميتين
+379,1382,Luteolin,MG,other,0,اللوتولين
+380,1383,Nobiletin,MG,other,0,نوبليتين
+381,1384,Sinensetin,MG,other,0,Tangeretin
+382,1385,Tangeretin,MG,other,0,Tangeretin
+383,1386,"Flavonols, total",MG,other,0,فلافونولز ، مجموع
+384,1387,Isorhamnetin,MG,other,0,كيمبفيرول
+385,1388,Kaempferol,MG,other,0,كيمبفيرول
+386,1389,Limocitrin,MG,other,0,ليموكيترين
+387,1390,Myricetin,MG,other,0,myricetin
+388,1391,Quercetin,MG,other,0,كيرسيتين
+389,1392,Theogallin,MG,other,0,ثيوجالين
+390,1393,"Theaflavin -3,3' -digallate",MG,other,0,theaflavin -3،3 '-digallate
+391,1394,Theaflavin -3' -gallate,MG,other,0,theaflavin -3 '-gallate
+392,1395,Theaflavin -3 -gallate,MG,other,0,theaflavin -3 -gallate
+393,1396,(+) -Gallo catechin,MG,other,0,(+) -جالو كاتشين
+394,1397,(+)-Catechin 3-gallate,MG,other,0,(+)-Catechin 3-Gallate
+395,1398,(+)-Gallocatechin 3-gallate,MG,other,0,(+)-Gallocatechin 3-gallate
+396,1399,Mannose,G,other,0,مانوز
+397,1400,Triose,G,other,0,رباعي
+398,1401,Tetrose,G,other,0,رباعي
+399,1402,Other Saccharides,G,other,0,السكريات الأخرى
+400,1403,Inulin,G,other,0,الأنيولين
+401,1404,"PUFA 18:3 n-3 c,c,c (ALA)",G,other,0,PUFA 18: 3 N-3 C ، C ، C (ALA)
+402,1405,PUFA 20:3 n-3,G,other,0,PUFA 20: 3 N-3
+403,1406,PUFA 20:3 n-6,G,other,0,PUFA 20: 3 N-6
+404,1407,PUFA 20:4 n-3,G,other,0,PUFA 20: 4 N-3
+405,1408,PUFA 20:4 n-6,G,other,0,PUFA 20: 4 N-6
+406,1409,PUFA 18:3i,G,other,0,PUFA 18: 3i
+407,1410,PUFA 21:5,G,other,0,PUFA 21: 5
+408,1411,PUFA 22:4,G,other,0,PUFA 22: 4
+409,1412,MUFA 18:1-11 t (18:1t n-7),G,other,0,MUFA 18: 1-11 T (18: 1T N-7)
+410,1413,MUFA 18:1-11 c (18:1c n-7),G,other,0,MUFA 18: 1-11 C (18: 1C N-7)
+411,1414,PUFA 20:3 n-9,G,other,0,PUFA 20: 3 N-9
+412,2000,Total Sugars,G,macronutrient,0,مجموع السكريات
+413,2003,SFA 5:0,G,other,0,SFA 5: 0
+414,2004,SFA 7:0,G,other,0,SFA 7: 0
+415,2005,SFA 9:0,G,other,0,SFA 9: 0
+416,2006,SFA 21:0,G,other,0,SFA 21: 0
+417,2007,SFA 23:0,G,other,0,SFA 23: 0
+418,2008,MUFA 12:1,G,other,0,MUFA 14: 1 ج
+419,2009,MUFA 14:1 c,G,other,0,MUFA 14: 1 ج
+420,2010,MUFA 17:1 c,G,other,0,MUFA 17: 1 ج
+421,2011,TFA 17:1 t,G,other,0,TFA 17: 1 ر
+422,2012,MUFA 20:1 c,G,other,0,MUFA 20: 1 ج
+423,2013,TFA 20:1 t,G,other,0,TFA 20: 1 ر
+424,2014,MUFA 22:1 n-9,G,other,0,MUFA 22: 1 N-9
+425,2015,MUFA 22:1 n-11,G,other,0,MUFA 22: 1 N-11
+426,2016,PUFA 18:2 c,G,other,0,PUFA 18: 2 ج
+427,2017,TFA 18:2 t,G,other,0,TFA 18: 2 ر
+428,2018,PUFA 18:3 c,G,other,0,PUFA 18: 3 ج
+429,2019,TFA 18:3 t,G,other,0,TFA 18: 3 ر
+430,2020,PUFA 20:3 c,G,other,0,PUFA 20: 3 ج
+431,2021,PUFA 22:3,G,other,0,PUFA 22: 3
+432,2022,PUFA 20:4c,G,other,0,PUFA 20: 4C
+433,2023,PUFA 20:5c,G,other,0,PUFA 20: 5C
+434,2024,PUFA 22:5 c,G,other,0,PUFA 22: 5 ج
+435,2025,PUFA 22:6 c,G,other,0,PUFA 22: 6 ج
+436,2026,PUFA 20:2 c,G,other,0,PUFA 20: 2 ج
+437,2027,Proximate,G,other,0,القريب
+438,2028,trans-beta-Carotene,UG,other,0,ترانس بيتا كاروتين
+439,2029,trans-Lycopene,UG,other,0,trans-lycopene
+440,2032,"Cryptoxanthin, alpha",UG,other,0,Cryptoxanthin ، ألفا
+441,2033,Total dietary fiber (AOAC 2011.25),G,macronutrient,0,إجمالي الألياف الغذائية (AOAC 2011.25)
+442,2034,Insoluble dietary fiber (IDF),G,macronutrient,0,الألياف الغذائية غير القابلة للذوبان (IDF)
+443,2035,Soluble dietary fiber (SDFP+SDFS),G,macronutrient,0,الألياف الغذائية القابلة للذوبان (SDFP+SDFS)
+444,2036,Soluble dietary fiber (SDFP),G,macronutrient,0,الألياف الغذائية القابلة للذوبان (SDFP)
+445,2037,Soluble dietary fiber (SDFS),G,macronutrient,0,الألياف الغذائية القابلة للذوبان (SDFS)
+446,2038,High Molecular Weight Dietary Fiber (HMWDF),G,macronutrient,0,ألياف غذائية عالية الوزن الجزيئي (HMWDF)
+447,2039,Carbohydrates,G,macronutrient,0,الكربوهيدرات
+448,2040,Other carotenoids,UG,other,0,الكاروتينات الأخرى
+449,2041,Tocopherols and tocotrienols,MG,other,0,توكوفيرولز و tocotrienols
+450,2042,Amino acids,G,other,0,الأحماض الأمينية
+451,2043,Minerals,MG,other,0,المعادن
+452,2044,Lipids,G,other,0,الدهون
+453,2045,Proximates,G,other,0,تقارب
+454,2046,Vitamins and Other Components,G,other,0,الفيتامينات والمكونات الأخرى
+455,2055,Total Tocopherols,MG,other,0,إجمالي توكوفيرولز
+456,2054,Total Tocotrienols,MG,other,0,إجمالي توكوترينول
+457,2053,Stigmastadiene,MG,other,0,وصمة العار
+458,2052,Delta-7-Stigmastenol,MG,other,0,Delta-7-Rachmastenol
+459,2049,Daidzin,MG,other,0,دايدزين
+460,2050,Genistin,MG,other,0,جينيستين
+461,2051,Glycitin,MG,other,0,جليسيتين
+462,2057,Ergothioneine,MG,other,0,ergothioneine
+463,2058,Beta-glucan,G,other,0,فيتامين D4
+464,2059,Vitamin D4,UG,vitamin,0,فيتامين D4
+465,2060,Ergosta-7-enol,MG,other,0,Ergosta-7-enol
+466,2061,"Ergosta-7,22-dienol",MG,other,0,Ergosta-7،22-Dienol
+467,2062,"Ergosta-5,7-dienol",MG,other,0,Ergosta-5،7-Dienol
+468,2063,Verbascose,G,other,0,Verbascose
+469,2064,Oligosaccharides,MG,other,0,قلة السكريات
+470,2065,Low Molecular Weight Dietary Fiber (LMWDF),G,macronutrient,0,ألياف غذائية منخفضة الوزن الجزيئي (LMWDF)
+471,2068,Vitamin E,MG,vitamin,0,فيتامين ه
+472,2067,Vitamin A,UG,vitamin,0,فيتامين أ
+473,2069,Glutathione,MG,other,0,الجلوتاثيون

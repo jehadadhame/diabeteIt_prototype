@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\FilesConstant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -11,18 +12,13 @@ class Food extends Model
 {
     protected $fillable = [
         'name',
-        'calories',
-        'carbs_grams',
-        'fiber_grams',
-        'protein_grams',
-        'fat_grams',
-        'net_carbs',
-        'glycemic_index',
-        'glycemic_load',
-        'unit',
-        'image_url',
+        'arabic_name',
+        'category_id',
+        'image_name',
     ];
     protected $table = "foods";
+    public const SMALL_IMAGES_PATH = FilesConstant::SMALL_IMAGES_PATH . "\\food";
+    public const ORIGINAL_IMAGES_PATH = FilesConstant::ORIGINAL_IMAGES_PATH . "\\food";
     public const TABLE_NAME = 'foods';
     // public function patients(): BelongsToMany
     // {
@@ -41,4 +37,5 @@ class Food extends Model
     {
         return $this->belongsToMany(Patient::class, PatientAllergicFood::TABLE_NAME, 'food_id', 'patient_id');
     }
+
 }

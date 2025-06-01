@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\administrator\AdministratorHomePageController;
-use App\Http\Controllers\administrator\AdministratorLoginController;
-use App\Http\Controllers\administrator\AdministratorLogoutController;
+use App\Http\Controllers\administrator\auth\AdministratorLoginController;
+use App\Http\Controllers\administrator\auth\AdministratorLogoutController;
+use App\Http\Controllers\administrator\AdministratorFoodController;
 use App\Http\Controllers\health_care_provider\auth\HealthCareProviderLoginController;
+use App\Http\Controllers\health_care_provider\auth\HealthCareProviderLogoutController;
 use App\Http\Controllers\health_care_provider\HealthCareProviderHomePageController;
-use App\Http\Controllers\health_care_provider\HealthCareProviderLogoutController;
 use App\Http\Controllers\patient\auth\PatientForgotPasswordController;
 use App\Http\Controllers\patient\auth\PatientLoginController;
 use App\Http\Controllers\patient\auth\PatientLogoutController;
@@ -96,5 +97,11 @@ Route::group(
                     ->name("api.administrator.auth.logout");
             }
         );
+        // uri : api/administrator/food
+        Route::resource("food", AdministratorFoodController::class, [])
+            ->except('edit', 'create')
+            ->middleware("auth:" . Administrator::API_GUARD_NAME);
+
     }
+
 );

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Administrator;
 use App\Models\HealthCareProvider;
+use App\Models\Nutrient;
 use App\Models\Patient;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(10)->create();
 
         User::factory()->create([
             'name' => 'Test User',
@@ -43,6 +44,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin 0',
             'email' => 'admin_0@example.com',
         ]);
+
+        $this->call(FoodCategorySeeder::class);
+        $this->call(FoodSeeder::class);
+        $this->call(NutrientSeeder::class);
+        $this->call(FoodNutrientSeeder::class);
 
     }
 }

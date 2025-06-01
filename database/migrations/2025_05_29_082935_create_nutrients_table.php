@@ -10,12 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('foods', function (Blueprint $table) {
+        Schema::create('nutrients', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
             $table->string('arabic_name')->nullable(false);
-            $table->foreignId("category_id")->references('id')->on('food_categories');
-            $table->string('image_name');
+            $table->boolean('is_required')->default(0);
+            $table->enum('unit_name', ['G', 'MG', 'UG', 'KCAL', 'IU', 'UMOL_TE', 'MCG_RE', 'PH', 'SP_GR', 'kJ', 'MG_ATE', 'MG_GAE']);
+            $table->enum('type', ['macronutrient', 'other', 'mineral', 'vitamin']);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('foods');
+        Schema::dropIfExists('nutrients');
     }
 };

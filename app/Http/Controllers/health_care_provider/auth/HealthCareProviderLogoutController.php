@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\health_care_provider;
+namespace App\Http\Controllers\health_care_provider\auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\HealthCareProvider;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class HealthCareProviderLogoutController extends Controller
 {
-    public function logout(Request $request)//: JsonResponse
+    public function logout(Request $request): JsonResponse
     {
         $user = Auth::guard(HealthCareProvider::API_GUARD_NAME)->user();
         if ($user && $request->user()->currentAccessToken()) {

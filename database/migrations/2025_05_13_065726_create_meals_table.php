@@ -12,20 +12,15 @@ return new class extends Migration {
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("description");
-            $table->double("carbs_grams");
-            $table->double("protein_grams");
-            $table->double("calories");
-            $table->decimal("fat_grams", 5, 2);
-            $table->decimal("fiber_grams", 5, 2);
-            $table->decimal("glycemic_load", 5, 2);
-            $table->decimal("net_carbs", 5, 2);
-            $table->enum("meal_type", ["breakfast", "lunch", "dinner", "snack"]);
-            $table->enum("unit", ["ml", "grams"]);
-            $table->boolean("is_custom");
+            $table->string("name")->nullable(false);
+            $table->string('arabic_name')->nullable(false);
+            $table->string("description")->nullable(false);
+            $table->double("total_carbs")->nullable(false);
+            $table->double("total_calories")->nullable(false);
+            $table->enum("meal_type", ["breakfast", "lunch", "dinner", "snack"])->nullable(false);
+            $table->boolean("is_custom")->nullable(false);
             $table->morphs("created_by");
-            $table->string("image_url");
+            $table->string("image_name");
             $table->timestamps();
         });
     }
