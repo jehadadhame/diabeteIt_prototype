@@ -16,6 +16,8 @@ use App\Models\Patient;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
+use function Pest\Laravel\artisan;
+
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
 // })->middleware('auth:sanctum');
@@ -234,7 +236,7 @@ Route::group(['prefix' => 'command'], function () {
         ]);
     });
 
-    Route::get('/run-artisan/command', function ($command) {
+    Route::get('/run-artisan/{command}', function ($command) {
         try {
             Artisan::call($command);
 
@@ -242,6 +244,37 @@ Route::group(['prefix' => 'command'], function () {
                 'status' => 'success',
                 'seed_output' => Artisan::output()
             ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    });
+
+    Route::get('/route-list', function () {
+        try {
+            Artisan::call('route:list');
+
+            return response()->json([
+                'status' => 'success',
+                'artisan_output' => Artisan::output()
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    });
+    Route::get('/test_database', function () {
+        try {
+            $patient = Patient::all();
+            return response()->json([
+                'status' => 'success',
+                'patients' => $patient
+            ]);
+
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
