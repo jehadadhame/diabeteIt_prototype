@@ -228,3 +228,19 @@ Route::get('/get-connection-info', function () {
         'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
     ]);
 });
+
+Route::get('/run-artisan/command', function ($command) {
+    try {
+        Artisan::call($command);
+
+        return response()->json([
+            'status' => 'success',
+            'seed_output' => Artisan::output()
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});

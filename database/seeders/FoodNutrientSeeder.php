@@ -24,13 +24,20 @@ class FoodNutrientSeeder extends Seeder
         $file = file($file_path);
         $data = array_map('str_getcsv', $file);
         $header = array_shift($data);
+        $appear = false;
         foreach ($data as $row) {
             if (count($header) != count($row)) {
                 echo "not all record have the same length, found this :  ";
                 print_r($row);
             }
             $row = array_combine($header, $row);
-
+            if (!$appear) {
+                if ($row['id'] == 8525376) {
+                    $appear = true;
+                }else{
+                    continue;
+                }
+            }
             $data = [
                 'food_id' => $row['food_id'],
                 'nutrient_id' => $row['nutrient_id'],

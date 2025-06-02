@@ -33,6 +33,7 @@ class FoodSeeder extends Seeder
                 continue;
             }
             $row = array_combine($header, $row);
+            
             Food::create([
                 'id' => $row['id'],
                 'name' => "'{$row['name']}'",
