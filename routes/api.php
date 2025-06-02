@@ -108,139 +108,145 @@ Route::group(
 );
 
 
-Route::get('/migrate', function () {
-    // if (request('key') !== env('MIGRATION_KEY')) {
-    //     abort(403, 'Unauthorized');
-    // }
-    try {
-        Artisan::call('migrate:fresh --force');
-        return response()->json([
-            'status' => 'success',
-            'migrate_output' => Artisan::output()
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage()
-        ], 500);
-    }
-});
 
-Route::get('/seed/{class_name}', function ($class_name) {
-    try {
-        if ($class_name == 'all') {
-            Artisan::call('db:seed --force');
-        } else {
-            Artisan::call("db:seed", [
-                "--class" => $class_name,
-                "--force" => true
+
+Route::group(['prefix' => 'command'], function () {
+
+
+    Route::get('/migrate', function () {
+        // if (request('key') !== env('MIGRATION_KEY')) {
+        //     abort(403, 'Unauthorized');
+        // }
+        try {
+            Artisan::call('migrate:fresh --force');
+            return response()->json([
+                'status' => 'success',
+                'migrate_output' => Artisan::output()
             ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
         }
+    });
+
+    Route::get('/seed/{class_name}', function ($class_name) {
+        try {
+            if ($class_name == 'all') {
+                Artisan::call('db:seed --force');
+            } else {
+                Artisan::call("db:seed", [
+                    "--class" => $class_name,
+                    "--force" => true
+                ]);
+            }
+            return response()->json([
+                'status' => 'success',
+                'seed_output' => Artisan::output()
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    });
+
+
+
+    Route::get('/deploy-artisan', function () {
+        try {
+            Artisan::call('migrate', ['--force' => true]);
+            Artisan::call('db:seed', ['--force' => true]);
+
+            return response()->json([
+                'status' => 'success',
+                'output' => Artisan::output(),
+            ]);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => explode("\n", $e->getTraceAsString())
+            ], 500);
+        }
+    });
+
+
+    Route::get('/clear-all-cache', function () {
+
+        Artisan::call('optimize:clear'); // Clears all caches: config, route, view, etc.
+
+        return 'All Laravel caches cleared.';
+    });
+
+
+    Route::get('/read-log', function () {
+        $logFile = storage_path('logs/laravel.log');
+
+        if (!file_exists($logFile)) {
+            return 'Log file does not exist.';
+        }
+
+        $lines = collect(file($logFile))->take(-30)->implode('');
+
+        return nl2br(e($lines));
+    });
+
+    Route::get('/test-error', function () {
+        throw new \Exception('Test exception works!');
+    });
+
+    Route::get('/env-check', function () {
         return response()->json([
-            'status' => 'success',
-            'seed_output' => Artisan::output()
+            'app_env' => env('APP_ENV'),
+            'app_debug' => env('APP_DEBUG'),
         ]);
-    } catch (\Exception $e) {
+    });
+
+    Route::get('/clear-config', function () {
+        Artisan::call('config:clear');
+        Artisan::call('config:cache');
+        return 'Config cache cleared';
+    });
+    Route::get('/clear-route', function () {
+        Artisan::call('route:clear');
+        Artisan::call('route:cache');
+        return 'route cache cleared';
+    });
+
+
+    Route::get('/get-connection-info', function () {
         return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage()
-        ], 500);
-    }
-});
-
-
-
-Route::get('/deploy-artisan', function () {
-    try {
-        Artisan::call('migrate', ['--force' => true]);
-        Artisan::call('db:seed', ['--force' => true]);
-
-        return response()->json([
-            'status' => 'success',
-            'output' => Artisan::output(),
+            'url' => env('DB_URL', "defualt_value"),
+            'connection' => env('DB_CONNECTION', "defualt_value"),
+            'host' => env('DB_HOST', "defualt_value"),
+            'port' => env('DB_PORT', "defualt_value"),
+            'database' => env('DB_DATABASE', "defualt_value"),
+            'username' => env('DB_USERNAME', "defualt_value"),
+            'password' => env('DB_PASSWORD', "defualt_value"),
+            'unix_socket' => env('DB_SOCKET', "defualt_value"),
+            'charset' => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
         ]);
-    } catch (\Throwable $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'trace' => explode("\n", $e->getTraceAsString())
-        ], 500);
-    }
-});
+    });
 
+    Route::get('/run-artisan/command', function ($command) {
+        try {
+            Artisan::call($command);
 
-Route::get('/clear-all-cache', function () {
-
-    Artisan::call('optimize:clear'); // Clears all caches: config, route, view, etc.
-
-    return 'All Laravel caches cleared.';
-});
-
-
-Route::get('/read-log', function () {
-    $logFile = storage_path('logs/laravel.log');
-
-    if (!file_exists($logFile)) {
-        return 'Log file does not exist.';
-    }
-
-    $lines = collect(file($logFile))->take(-30)->implode('');
-
-    return nl2br(e($lines));
-});
-
-Route::get('/test-error', function () {
-    throw new \Exception('Test exception works!');
-});
-
-Route::get('/env-check', function () {
-    return response()->json([
-        'app_env' => env('APP_ENV'),
-        'app_debug' => env('APP_DEBUG'),
-    ]);
-});
-
-Route::get('/clear-config', function () {
-    Artisan::call('config:clear');
-    Artisan::call('config:cache');
-    return 'Config cache cleared';
-});
-Route::get('/clear-route', function () {
-    Artisan::call('route:clear');
-    Artisan::call('route:cache');
-    return 'route cache cleared';
-});
-
-
-Route::get('/get-connection-info', function () {
-    return response()->json([
-        'url' => env('DB_URL', "defualt_value"),
-        'connection' => env('DB_CONNECTION', "defualt_value"),
-        'host' => env('DB_HOST', "defualt_value"),
-        'port' => env('DB_PORT', "defualt_value"),
-        'database' => env('DB_DATABASE', "defualt_value"),
-        'username' => env('DB_USERNAME', "defualt_value"),
-        'password' => env('DB_PASSWORD', "defualt_value"),
-        'unix_socket' => env('DB_SOCKET', "defualt_value"),
-        'charset' => env('DB_CHARSET', 'utf8mb4'),
-        'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
-    ]);
-});
-
-Route::get('/run-artisan/command', function ($command) {
-    try {
-        Artisan::call($command);
-
-        return response()->json([
-            'status' => 'success',
-            'seed_output' => Artisan::output()
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage()
-        ], 500);
-    }
+            return response()->json([
+                'status' => 'success',
+                'seed_output' => Artisan::output()
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    });
 });
