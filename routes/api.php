@@ -108,13 +108,12 @@ Route::group(
 );
 
 
-Route::get('/run-command', function () {
+Route::get('/migrate', function () {
     // if (request('key') !== env('MIGRATION_KEY')) {
     //     abort(403, 'Unauthorized');
     // }
     try {
         Artisan::call('migrate:fresh --force');
-        Artisan::call('db:seed --force');
         return response()->json([
             'status' => 'success',
             'migrate_output' => Artisan::output()
@@ -126,6 +125,29 @@ Route::get('/run-command', function () {
         ], 500);
     }
 });
+
+Route::get('/seed/{class_name}', function ($class_name) {
+    try {
+        if ($class_name == 'all') {
+            Artisan::call('db:seed --force');
+        } else {
+            Artisan::call("db:seed ", [
+                "--class" => $class_name,
+                "--force" => true
+            ]);
+        }
+        return response()->json([
+            'status' => 'success',
+            'seed_output' => Artisan::output()
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});
+
 
 
 Route::get('/deploy-artisan', function () {
@@ -194,14 +216,14 @@ Route::get('/clear-route', function () {
 
 Route::get('/get-connection-info', function () {
     return response()->json([
-        'url' => env('DB_URL'),
-        'connection type' => env('DB_CONNECTION'),
-        'host' => env('DB_HOST'),
-        'port' => env('DB_PORT'),
-        'database' => env('DB_DATABASE'),
-        'username' => env('DB_USERNAME'),
-        'password' => env('DB_PASSWORD'),
-        'unix_socket' => env('DB_SOCKET'),
+        'url' => env('DB_URL', "defualt_value"),
+        'connection' => env('DB_CONNECTION', "defualt_value"),
+        'host' => env('DB_HOST', "defualt_value"),
+        'port' => env('DB_PORT', "defualt_value"),
+        'database' => env('DB_DATABASE', "defualt_value"),
+        'username' => env('DB_USERNAME', "defualt_value"),
+        'password' => env('DB_PASSWORD', "defualt_value"),
+        'unix_socket' => env('DB_SOCKET', "defualt_value"),
         'charset' => env('DB_CHARSET', 'utf8mb4'),
         'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
     ]);
