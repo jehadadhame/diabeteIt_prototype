@@ -131,7 +131,7 @@ Route::get('/seed/{class_name}', function ($class_name) {
         if ($class_name == 'all') {
             Artisan::call('db:seed --force');
         } else {
-            Artisan::call("db:seed ", [
+            Artisan::call("db:seed", [
                 "--class" => $class_name,
                 "--force" => true
             ]);
