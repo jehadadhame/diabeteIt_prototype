@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Constants\FilesConstant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
@@ -36,6 +37,12 @@ class Food extends Model
     public function patients_alargic_to(): BelongsToMany
     {
         return $this->belongsToMany(Patient::class, PatientAllergicFood::TABLE_NAME, 'food_id', 'patient_id');
+    }
+
+    public function nutrients(): BelongsToMany
+    {
+        return $this->BelongsToMany(Nutrient::class, FoodNutrient::TABLE_NAME, 'food_id', 'nutrient_id')
+            ->withPivot('amount', 'min', 'max', 'median');
     }
 
 }

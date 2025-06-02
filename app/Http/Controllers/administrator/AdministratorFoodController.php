@@ -4,10 +4,11 @@ namespace App\Http\Controllers\administrator;
 
 use App\Http\Controllers\Controller;
 use App\Models\Food;
+use App\Models\Nutrient;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Mockery\Expectation;
 use function App\Helpers\upload_image;
-use function Laravel\Prompts\error;
 
 class AdministratorFoodController extends Controller
 {
@@ -32,36 +33,57 @@ class AdministratorFoodController extends Controller
     public function store(Request $request)
     {
 
-        // $data = $request->validate([
-        //     "name" => ["required", "string"],
-        //     "calories" => ["required", "numeric"],
-        //     "carbs_grams" => ["required", "numeric"],
-        //     "fiber_grams" => ["required", "numeric"],
-        //     "protein_grams" => ["required", "numeric"],
-        //     "fat_grams" => ["required", "numeric"],
-        //     "net_carbs" => ["required", "numeric"],
-        //     "glycemic_index" => ["required", "integer"],
-        //     "glycemic_load" => ["required", "numeric"],
-        //     "unit" => ["required", "in:ml,grams"],
-        //     "image" => ["required", 'image'],
-        // ]);
+        $rules = [
+            "name" => ["required", "string"],
+            "arabic_name" => ["required", "string"],
+            "category_id" => ["required", 'exists:food_categories,id'],
+            "image" => ["required", 'image'],
+        ];
 
-        // $file = $data['image'];
-        // $image_name = upload_image($file, Food::ORIGINAL_IMAGES_PATH, Food::SMALL_IMAGES_PATH);
-        // $data['image_name'] = $image_name;
-        // unset($data['image']);
 
-        // if ($image_name) {
-        //     if (Food::create($data)) {
-        //         return response()->json([
-        //             "message" => "data inserted successfuly",
-        //         ]);
-        //     }
+        $nutrients = $request['nutrients'];
+        $required_nutrient_ids = Nutrient::where('is_required', 1)->pluck('id')->toArray();
+        foreach ($nutrients as $id => $value) {
+            $rules["nutrients.{$id}"] = 'exists:nutrients,id';
+        }
+        foreach ($required_nutrient_ids as $id) {
+            $rules["nutrients.{$id}"] = 'required';
+        }
 
-        // }
-        // return response()->json([
-        //     'message' => "faild",
-        // ]);
+        $data = $request->validate($rules);
+
+        $file = $data['image'];
+        /**
+         * Dummy upload_image definition for IDE
+         */
+        $image_name = upload_image($file, Food::ORIGINAL_IMAGES_PATH, Food::SMALL_IMAGES_PATH);
+        unset($data['image']);
+        if ($image_name) {
+            $data['image_name'] = $image_name;
+        } else {
+            return response()->json([
+                'message' => "faild uploading image, for debuging AdministratorFoodController line:63",
+            ], 500);
+        }
+        // inserting food data
+        try {
+            $food = Food::create($data);
+            if ($food) {
+                $pivotData = [];
+                foreach ($nutrients as $id => $value) {
+                    $pivotData[$id] = ['amount' => $value];
+                }
+                $food->nutrients()->attach($pivotData);
+            }
+            return response()->json([
+                "message" => "data inserted successfuly",
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                "message" => "faild saving the data for debuging AdministratorFoodController line:80",
+            ]);
+        }
+
     }
 
     /**
@@ -87,25 +109,24 @@ class AdministratorFoodController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $food_id): JsonResponse
+    public function update(Request $request, Food $food): JsonResponse
     {
-        $data = $request->validate([
+        $rules = [
             "name" => ["string"],
-            "calories" => ["numeric"],
-            "carbs_grams" => ["numeric"],
-            "fiber_grams" => ["numeric"],
-            "protein_grams" => ["numeric"],
-            "fat_grams" => ["numeric"],
-            "net_carbs" => ["numeric"],
-            "glycemic_index" => ["integer"],
-            "glycemic_load" => ["numeric"],
-            "unit" => ["in:ml,grams"],
+            "arabic_name" => ["string"],
+            "category_id" => ['exists:food_categories,id'],
             "image" => ['image'],
-        ]);
+        ];
+        $nutrients = $request['nutrients'];
+        foreach ($nutrients as $id => $value) {
+            $rules["nutrients.{$id}"] = 'exists:nutrients,id';
+        }
+
+        $data = $request->validate($rules);
+
         if (array_key_exists('image', $data)) {
             $file = $data['image'];
             $image_name = "";//upload_image($file, Food::ORIGINAL_IMAGES_PATH, Food::SMALL_IMAGES_PATH);
-            $data['image_name'] = $image_name;
             unset($data['image']);
             if (!$image_name) {
                 return response()->json([
@@ -113,20 +134,33 @@ class AdministratorFoodController extends Controller
                         'image' => "can't upload",
                     ]
                 ], 422);
+            } else {
+                $data['image_name'] = $image_name;
             }
 
         }
-
-        if (Food::where('id', $food_id)->update($data)) {
+        $updated = $food->update($data);
+        try {
+            if ($updated) {
+                $pivotData = [];
+                foreach ($nutrients as $id => $value) {
+                    $pivotData[$id] = ['amount' => $value];
+                }
+                $food->nutrients()->attach($pivotData);
+                return response()->json([
+                    "message" => "data updated successfuly",
+                ]);
+            } else {
+                return response()->json([
+                    'errors' => [
+                        'id' => "can find food with this id",
+                    ],
+                ], 404);
+            }
+        } catch (\Exception $e) {
             return response()->json([
-                "message" => "data updated successfuly",
+                "message" => "faild saving the data for debuging AdministratorFoodController line:80",
             ]);
-        } else {
-            return response()->json([
-                'errors' => [
-                    'id' => "can find food with this id",
-                ],
-            ], 404);
         }
     }
 
