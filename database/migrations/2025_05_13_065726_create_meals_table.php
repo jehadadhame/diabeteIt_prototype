@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->double("total_calories")->nullable(false);
             $table->enum("meal_type", ["breakfast", "lunch", "dinner", "snack"])->nullable(false);
             $table->boolean("is_custom")->nullable(false);
-            $table->morphs("created_by");
+            $table->foreignId('patient_id')->nullable(true)->constrained('patients');
             $table->string("image_name");
             $table->timestamps();
         });

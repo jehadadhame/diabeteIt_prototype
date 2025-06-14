@@ -52,7 +52,7 @@ class Patient extends Authenticatable
         return $this->hasOne(PatientDiabetesData::class);
     }
 
-    public function foods(): MorphToMany
+    public function food_logs(): MorphToMany
     {
         return $this->morphedByMany(Food::class, 'edibles', PatientEdible::class);
     }
@@ -75,7 +75,7 @@ class Patient extends Authenticatable
         return $this->hasManyThrough(Symptom::class, PatientSymptom::class);
     }
 
-    public function meals(): MorphToMany
+    public function meal_logs(): MorphToMany
     {
         return $this->morphedByMany(PatientEdible::class, 'edibles', PatientEdible::TABLE_NAME);
     }
@@ -91,5 +91,9 @@ class Patient extends Authenticatable
     public function insulin_doses(): HasMany
     {
         return $this->hasMany(Insulin_dose::class);
+    }
+    public function my_meal(): HasMany
+    {
+        return $this->hasMany(Meal::class, 'created_by');
     }
 }

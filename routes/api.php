@@ -10,6 +10,7 @@ use App\Http\Controllers\health_care_provider\HealthCareProviderHomePageControll
 use App\Http\Controllers\patient\auth\PatientForgotPasswordController;
 use App\Http\Controllers\patient\auth\PatientLoginController;
 use App\Http\Controllers\patient\auth\PatientLogoutController;
+use App\Http\Controllers\PatientEdibleLogController;
 use App\Models\Administrator;
 use App\Models\HealthCareProvider;
 use App\Models\Patient;
@@ -55,6 +56,13 @@ Route::group(
                     },
                 );
             },
+        );
+        Route::group(
+            ['prefix' => 'eat'],
+            function () {
+                Route::get('find-something-to-eat', [PatientEdibleLogController::class, 'findSomthingToEat']);
+                Route::post('add-edible-log', [PatientEdibleLogController::class, 'addEdibleLog']);
+            }
         );
     }
 );
